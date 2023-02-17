@@ -1,0 +1,33 @@
+.landing {
+  height: 100vh;
+
+  display: flex;
+  place-items: center;
+
+  .left {
+    border: 1px solid;
+    height: 100%;
+    width: 60%;
+    .video{
+      border: 1px solid red;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .right {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+      display: flex;
+      margin: auto;
+      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+      height: 60%;
+      width: 60%;
+      border-radius: 20px;
+    }
+  }
+}
