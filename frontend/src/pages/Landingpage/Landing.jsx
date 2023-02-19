@@ -14,7 +14,7 @@ export default function Landing() {
        <Img className={"leftImg"} src={video}/>
       </div>
       <div className="right">
-      <AwesomeButton size="large"   type="primary" after={<GrFormNext fontWeight={700} />}>Get Started</AwesomeButton>
+          <button class="button-66" role="button">Get Started</button>
       </div>
     </div>
   );
