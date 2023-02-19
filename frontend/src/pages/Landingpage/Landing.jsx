@@ -14,7 +14,7 @@ export default function Landing() {
        <Img className={"leftImg"} src={video}/>
       </div>
       <div className="right">
-          <button class="button-66" role="button">Get Started</button>
+          <button class="button-66" role="button"> <span>Get Started</span> </button>
       </div>
     </div>
   );
