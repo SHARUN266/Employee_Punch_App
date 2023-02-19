@@ -4,15 +4,18 @@ import "./style.scss";
 function Navbar() {
   return (
     <div className="navbar">
-      <div><h1>Logo</h1></div>
-      <div  className="content">
-        <span>Home</span>
-        <span>Attendance</span>
-        <span>About</span>
+      <div>
+        <Logo/>
       </div>
+      <ul className="menuItems">
+        <li className="menuItem">Home</li>
+        <li className="menuItem">About</li>
+        <li className="menuItem">Contact</li>
+        
+      </ul>
       <div className="btn-con">
-        <button>Sign in </button>
-        <button>Sign Up</button>
+        <button  className="btn-1">Sign in </button>
+        <button  className="btn-2">Sign Up</button>
       </div>
     </div>
   );

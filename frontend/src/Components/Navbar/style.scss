@@ -1,0 +1,64 @@
+@import "../../mixins.scss";
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  background: white;
+  .menuItems {
+    font-weight: 400;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    @include md {
+      gap: 30px;
+    }
+    .menuItem {
+      transition: all ease 0.3s;
+      cursor: pointer;
+      font-size: 12px;
+      @include md {
+        font-size: 16px;
+      }
+      &:hover {
+        color: var(--blue);
+      }
+    }
+  }
+  .btn-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .btn-1 {
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      background: var(--blue);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+    }
+    .btn-2 {
+      color: var(--blue);
+      cursor: pointer;
+      background: white;
+      font-size: 16px;
+      border: 1px solid var(--blue);
+      padding: 10px 20px;
+      transition: 1000ms;
+      border-radius: 10px;
+    }
+    .btn-2:hover {
+      background: var(--blue);
+      color: white;
+    }
+  }
+}
