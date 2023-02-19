@@ -55,10 +55,11 @@
       padding: 10px 20px;
       transition: all ease 0.3s;
       border-radius: 10px;
+      &:hover {
+        background: var(--blue);
+        color: white;
+      }
     }
-    .btn-2:hover {
-      background: var(--blue);
-      color: white;
-    }
+   
   }
 }
