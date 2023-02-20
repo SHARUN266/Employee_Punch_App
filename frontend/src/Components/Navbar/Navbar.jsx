@@ -12,7 +12,10 @@ function Navbar() {
         <Link to="/">
           <li className="menuItem">Home</li>
         </Link>
-        <li className="menuItem">About</li>
+        <Link to="/attendance">
+        
+        <li className="menuItem">Attendance</li>
+        </Link>
         <li className="menuItem">Contact</li>
       </ul>
       <div className="btn-con">
