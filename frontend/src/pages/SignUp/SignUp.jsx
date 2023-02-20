@@ -13,9 +13,10 @@ function SignUp() {
         </div>
         <div className="right">
           <form className="signup_form"   >
+          <h1>Sign Up</h1>
             {signUp_utils.map((e) => (
               <div className="input_con">
-                <label>{e.label}</label>
+                <label  style={{color:"grayText"}} >{e.label}</label>
                 <br/>
                 <input  name={e.name} type={e.type} placeholder={e.placeholder} style={{width:"25rem"}} />
               </div>
