@@ -1,21 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import "./style.scss";
 function Navbar() {
   return (
     <div className="navbar">
       <div>
-        <Logo/>
+        <Logo />
       </div>
       <ul className="menuItems">
-        <li className="menuItem">Home</li>
+        <Link to="/">
+          <li className="menuItem">Home</li>
+        </Link>
         <li className="menuItem">About</li>
         <li className="menuItem">Contact</li>
-        
       </ul>
       <div className="btn-con">
-        <button  className="btn-1">Sign in </button>
-        <button  className="btn-2">Sign Up</button>
+        <Link to="/login">
+          <button className="btn-1">Sign in </button>
+        </Link>
+        <Link to="/signup">
+          <button className="btn-2">Sign Up</button>
+        </Link>
       </div>
     </div>
   );
