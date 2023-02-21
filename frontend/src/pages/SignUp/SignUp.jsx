@@ -7,8 +7,8 @@ import { signUp_utils } from "../../Utils/SignUp";
 import { useDispatch, useSelector } from "react-redux";
 import { SignUp_User } from "../../Redux/Reducer/action";
 function SignUp() {
-  const { loading, error } = useSelector((state) => state.reducer);
-  console.log(error);
+  const { loading, error,errorMsg } = useSelector((state) => state.reducer);
+   console.log(errorMsg,error)
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     name: "",
@@ -52,6 +52,9 @@ function SignUp() {
               type={"submit"}
               value={"Submit"}
             />
+            {
+              error && <p  style={{color:'red'}}   >{errorMsg}</p>
+            }
             <p>
               Have already account? <span>Sign In</span>{" "}
             </p>

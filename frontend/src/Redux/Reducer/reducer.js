@@ -15,6 +15,7 @@ export const reducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         successMsg: payload,
+        
       };
     }
     case actionTypes.SIGNUP_ERROR: {

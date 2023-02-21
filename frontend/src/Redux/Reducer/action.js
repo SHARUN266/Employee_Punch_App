@@ -2,13 +2,16 @@ import { SIGNUP_ERROR, SIGNUP_LOADING, SIGNUP_SUCCESS } from "./actionType";
 import axios from "axios";
 const BASE_URL = "http://localhost:3000";
 export const SignUp_User = (user) => async (dispatch) => {
-  dispatch({ type: SIGNUP_LOADING, type: "Loading..." });
+  dispatch({ type: SIGNUP_LOADING, payload: "Loading..." });
+ 
   try {
-    await axios.post(`${BASE_URL}/signup/user`, user);
+   let data= await axios.post(`${BASE_URL}/signup/user`, user);
+   console.log(data)
     dispatch({
       type: SIGNUP_SUCCESS,
-      type: "You account created successfully!",
+      payload: "You account created successfully!",
     });
+   
   } catch (e) {
     dispatch({ type: SIGNUP_ERROR, payload: e.message });
   }
