@@ -1,8 +1,8 @@
 import React from 'react'
 import "./style.scss"
-function Button({children}) {
+function Button({children,onClick}) {
   return (
-   <button  className='btn'>{children}</button>
+   <button onClick={onClick}  className='btn'>{children}</button>
   )
 }
 
