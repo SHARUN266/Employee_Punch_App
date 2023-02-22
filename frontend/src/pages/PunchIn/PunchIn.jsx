@@ -3,16 +3,34 @@ import Button from "../../Components/Button/Button";
 import ContentWrapper from "../../Components/contentWrapper/ContentWrapper";
 import { GetTime } from "../../Utils/GetTime";
 import "./style.scss";
-import { MapContainer, TileLayer } from "react-leaflet";
-
+import { Map, TileLayer ,Marker, Popup} from "react-leaflet";
+import L from "leaflet"
 import osm from "../../Utils/osm-providers";
 import "leaflet/dist/leaflet.css";
-
+import useGeolocation from "../../Utils/useGeolocation";
+const markerIcon=new L.Icon({
+  iconUrl:"https://img.icons8.com/color/1x/map-pin.png",
+  iconSize:[35,45],
+  iconAnchor:[17,45],
+  popupAnchor:[0,-46]
+})
 function PunchIn() {
-  const [center, setCenter] = useState({ lat: 27.142289, lng: 78.045411 });
+  const location=useGeolocation()
+  const [center, setCenter] = useState({ lat: 28.142289, lng: 93.045411 });
   const ZOOM_LEVEL = 15;
   const mapRef = useRef();
- 
+  function handleSubmit(){
+    if (location.loaded && !location.error) {
+   
+    mapRef.current.leafletElement.flyTo(
+      [location.coordinates.lat, location.coordinates.lng],
+      ZOOM_LEVEL,
+      { animate: true }
+    );
+  } else {
+    alert(location.error.message);
+  }
+ }
   return (
     <ContentWrapper>
       <div className="container_login">
@@ -43,14 +61,27 @@ function PunchIn() {
             <p className="complete_time">
               You have complete your <span>4.5</span>{" "}
             </p>
-            <Button >Time In</Button>
+            <Button onClick={handleSubmit} >Time In</Button>
            
           </div>
         </div>
         <div className="right">
-          <MapContainer center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
-            <TileLayer url={osm.maptiler.url} />
-          </MapContainer>
+        <Map center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
+              <TileLayer
+                url={osm.maptiler.url}
+                attribution={osm.maptiler.attribution}
+              />
+
+              {location.loaded && !location.error && (
+                <Marker
+                  icon={markerIcon}
+                  position={[
+                    location.coordinates.lat,
+                    location.coordinates.lng,
+                  ]}
+                ></Marker>
+              )}
+            </Map>
         </div>
       </div>
     </ContentWrapper>
@@ -58,3 +89,4 @@ function PunchIn() {
 }
 
 export default PunchIn;
+
