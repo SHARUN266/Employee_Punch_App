@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Landing from "./pages/Landingpage/Landing";
 import Login from "./pages/Login/Login";
 import PunchIn from "./pages/PunchIn/PunchIn";
+
 import SignUp from "./pages/SignUp/SignUp";
 
 function App() {
