@@ -7,6 +7,7 @@ const initState = {
   loadingMsg: "",
   errorMsg: "",
   successMsg: "",
+  auth:false
 };
 
 export const reducer = (state = initState, { type, payload }) => {
@@ -15,7 +16,11 @@ export const reducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         successMsg: payload,
-        
+        loading: false,
+        loadingMsg: "",
+        error: false,
+        errorMsg: "",
+        auth:true
       };
     }
     case actionTypes.SIGNUP_ERROR: {
@@ -30,7 +35,34 @@ export const reducer = (state = initState, { type, payload }) => {
         ...state,
         loading: true,
         loadingMsg: payload,
+
       };
+    }
+    case actionTypes.LOGIN_LOADING: {
+      return {
+        ...state,
+        loading: true,
+        loadingMsg: payload,
+      };
+    }
+    case actionTypes.LOGIN_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        loadingMsg: "",
+        error: false,
+        errorMsg: "",
+        data:payload,
+        auth:true
+      };
+    }
+    case actionTypes.LOGIN_ERROR:{
+      return {
+        ...state,
+        error: true,
+        errorMsg: payload,
+
+      }
     }
     default:
       return state;

@@ -7,8 +7,8 @@ import { signUp_utils } from "../../Utils/SignUp";
 import { useDispatch, useSelector } from "react-redux";
 import { SignUp_User } from "../../Redux/Reducer/action";
 function SignUp() {
-  const { loading, error,errorMsg } = useSelector((state) => state.reducer);
-   console.log(errorMsg,error)
+  const { loading, error,errorMsg,auth,successMsg } = useSelector((state) => state.reducer);
+   
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     name: "",
@@ -23,6 +23,7 @@ function SignUp() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(SignUp_User(user));
+    e.target.reset()
   }
   return (
     <ContentWrapper>
@@ -52,6 +53,9 @@ function SignUp() {
               type={"submit"}
               value={"Submit"}
             />
+            {
+              auth && <p  style={{color:'green'}}   >{successMsg}</p>
+            }
             {
               error && <p  style={{color:'red'}}   >{errorMsg}</p>
             }

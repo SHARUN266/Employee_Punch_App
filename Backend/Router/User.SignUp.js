@@ -13,5 +13,19 @@ app.post("/user", async (req, res) => {
     res.status(505).send(e.message);
   }
 });
+app.post("/login",async (req,res)=>{
+  const {employee_id,password}=req.body
+  try{
+    let user=await UserModel.findOne({employee_id})
+    if(password===user.password){
+      res.status(200).send(user)
+    }else{
+      res.status(505).send("Email of password is wrong!")
+    }
+
+  }catch(e){
+    res.status(505).send(e.message)
+  }
+})
 
 module.exports = app;
