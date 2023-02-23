@@ -23,19 +23,19 @@ export const SignUp_User = (user) => async (dispatch) => {
   }
 };
 
-export const Login_User = (user) => async (dispatch) => {
+export const Login_User = (user, nav) => async (dispatch) => {
   dispatch({ type: LOGIN_LOADING, payload: "Loading..." });
   try {
-   let {data}= await axios.post(`${BASE_URL}/signup/login`, user);
-   
-   if(data){
-    dispatch({
-      type: LOGIN_SUCCESS,
-      payload: "Login successfully!",
-    });
-   }
-   
-   
+    let { data } = await axios.post(`${BASE_URL}/signup/login`, user);
+
+    if (data) {
+      localStorage.setItem("user", JSON.stringify(data));
+      nav("/attendance");
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: "Login successfully!",
+      });
+    }
   } catch (e) {
     dispatch({ type: LOGIN_ERROR, payload: e.message });
   }

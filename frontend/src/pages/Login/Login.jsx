@@ -6,7 +6,9 @@ import signup from "../../assets/15.jpg";
 import { Login_utils } from "../../Utils/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { Login_User } from "../../Redux/Reducer/action";
+import { useNavigate } from "react-router-dom";
 function Login() {
+  const nav=useNavigate()
   const { loading } = useSelector((state) => state.reducer);
 
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ function Login() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(Login_User(user));
+    dispatch(Login_User(user,nav));
     e.target.reset()
   }
   return (

@@ -20,7 +20,7 @@ function PunchIn() {
   const outTime = GetTime(new Date(), 8);
   const location = useGeolocation();
   const [punchIn, setPuchIn] = useState({});
-  
+  const {user}=JSON.parse(localStorage.getItem("user"))
   const [center, setCenter] = useState({ lat: 27.713, lng: 78.99 });
   const ZOOM_LEVEL = 15;
   const mapRef = useRef();
@@ -33,7 +33,7 @@ function PunchIn() {
 
       if (27.142 == lat.toFixed(3) || 78.045 == lng.toFixed(3)) {
         setPuchIn({
-          employee_id: "123482",
+          employee_name: user.name,
           punchTime: currentTime,
           punchOut: outTime,
         });

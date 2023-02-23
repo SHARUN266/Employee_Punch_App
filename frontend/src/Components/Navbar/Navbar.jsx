@@ -20,7 +20,7 @@ function Navbar() {
           <li className="menuItem">Attendance</li>
         </Link>
         <Link to="/present">
-          <li>Present Employee</li>
+          <li className="menuItem">Present Employee</li>
         </Link>
         <li className="menuItem">Contact</li>
       </ul>
