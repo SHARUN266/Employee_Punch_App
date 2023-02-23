@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import PresentEmployee from "./Components/EmployeeList/PresentEmployee";
 import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import Landing from "./pages/Landingpage/Landing";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/attendance" element={<PunchIn/>}/>
+        <Route path="/present"  element={<PresentEmployee/>}/>
       </Routes>
 
       <Footer />

@@ -16,6 +16,9 @@ function Navbar() {
         
         <li className="menuItem">Attendance</li>
         </Link>
+        <Link to="/present">
+            <li>Present Employee</li>
+        </Link>
         <li className="menuItem">Contact</li>
       </ul>
       <div className="btn-con">
@@ -25,6 +28,7 @@ function Navbar() {
         <Link to="/signup">
           <button className="btn-2">Sign Up</button>
         </Link>
+        
       </div>
     </div>
   );

@@ -1,0 +1,69 @@
+$background: #efefef;
+$lfs-blue: #006ac6;
+$lfs-yellow: #fab700;
+$lfs-grey: #75787b;
+
+.panel{
+    height: 80vh;
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+    .panel-body{
+        overflow: scroll;
+        width: 100%;
+        text-align: center;
+        height: 80%;
+        padding: 20px;
+        background:white ;
+        border-radius: 15px;
+    }
+}
+.table-latitude {
+    
+    width: 100%;
+    height: 100%;
+    caption {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $lfs-yellow;
+        text-align: center;
+    }
+    thead {
+        border-top: 2px solid $lfs-yellow;
+        border-bottom: 2px solid $lfs-yellow;
+        th {
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px;
+            color: $lfs-blue;
+            border: 1px solid #F1F1F1;
+        }
+    }
+    tbody {
+        tr {
+            border-bottom: 1px solid #F1F1F1;
+            color: $lfs-grey;
+            td {
+                padding: 10px;
+                border: 1px solid #F1F1F1;
+            }
+            th {
+                padding-left: 10px;
+                border: 1px solid #F1F1F1;
+            }
+        }
+    }
+   
+    tfoot {
+        color: $lfs-yellow;
+        font-style: italic;
+        border-bottom: 2px solid $lfs-yellow;
+        tr {
+            td {
+                padding: 10px;
+                border: 1px solid #F1F1F1;
+            }
+        }
+    }
+}
