@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import PresentEmployee from "./Components/EmployeeList/PresentEmployee";
 import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
+import Private from "./Components/Private/Private";
 import Landing from "./pages/Landingpage/Landing";
 import Login from "./pages/Login/Login";
 import PunchIn from "./pages/PunchIn/PunchIn";
@@ -17,8 +18,22 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/attendance" element={<PunchIn/>}/>
-        <Route path="/present"  element={<PresentEmployee/>}/>
+        <Route
+          path="/attendance"
+          element={
+            <Private>
+              <PunchIn />
+            </Private>
+          }
+        />
+        <Route
+          path="/present"
+          element={
+            <Private>
+              <PresentEmployee />
+            </Private>
+          }
+        />
       </Routes>
 
       <Footer />

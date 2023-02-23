@@ -20,7 +20,7 @@ export const reducer = (state = initState, { type, payload }) => {
         loadingMsg: "",
         error: false,
         errorMsg: "",
-        auth:true
+       
       };
     }
     case actionTypes.SIGNUP_ERROR: {

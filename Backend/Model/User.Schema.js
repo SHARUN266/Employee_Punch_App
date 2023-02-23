@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const userSchema = Schema({
-  name: { type: String },
+  name: { type: String,unique:true },
 
   mobile_number: { type: Number },
   employee_designation: { type: String },
-  password: { type: String, unique: true },
+  password: { type: String },
 });
 userSchema.pre("save", async function (next) {
   const user = this;
