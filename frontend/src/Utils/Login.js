@@ -1,9 +1,9 @@
 export const Login_utils = [
   {
-    label: "Employee ID",
-    name: "employee_id",
-    placeholder: "User ID/Email",
-    type: "email",
+    label: "Name",
+    name: "name",
+    placeholder: "Enter your name",
+    type: "name",
   },
 
   {

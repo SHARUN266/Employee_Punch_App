@@ -11,7 +11,7 @@ function Login() {
 
   const dispatch = useDispatch();
   const [user, setUser] = useState({
-    employee_id: "",
+    name: "",
 
     password: "",
   });

@@ -12,9 +12,9 @@ function SignUp() {
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     name: "",
-    employee_id: "",
+   
     mobile_number: "",
-    emplyee_designation: "",
+    employee_designation: "",
     password: "",
   });
   function handleChange(e) {

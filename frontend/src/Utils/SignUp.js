@@ -5,13 +5,7 @@ export const signUp_utils = [
     placeholder: "Employee Name",
     type:"text"
   },
-  {
-    label: "Employee ID",
-    name: "employee_id",
-    placeholder: "User ID/Email",
-    type:"email"
-    
-  },
+ 
 
   {
     label: "Mobile Number",
@@ -21,7 +15,7 @@ export const signUp_utils = [
   },
   {
     label: "Designation",
-    name: "emplyee_designation",
+    name: "employee_designation",
     placeholder: "Employee Designation",
     type:"text"
   },
