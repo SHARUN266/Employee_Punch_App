@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Login_User } from "../../Redux/Reducer/action";
 import { useNavigate } from "react-router-dom";
 function Login() {
-  const nav=useNavigate()
+  const nav = useNavigate();
   const { loading } = useSelector((state) => state.reducer);
 
   const dispatch = useDispatch();
@@ -22,8 +22,8 @@ function Login() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(Login_User(user,nav));
-    e.target.reset()
+    dispatch(Login_User(user, nav));
+    e.target.reset();
   }
   return (
     <ContentWrapper>
@@ -34,7 +34,7 @@ function Login() {
         <div className="right">
           <form className="signup_form" onSubmit={handleSubmit}>
             <h1>Login</h1>
-            {Login_utils.map((e,i) => (
+            {Login_utils.map((e, i) => (
               <div key={i} className="input_con">
                 <label style={{ color: "grayText" }}>{e.label}</label>
                 <br />

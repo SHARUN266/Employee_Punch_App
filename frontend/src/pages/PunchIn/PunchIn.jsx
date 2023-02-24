@@ -35,7 +35,7 @@ function PunchIn() {
       console.log(lat, lng);
       if (28.642 == lat.toFixed(3) || 77.953 == lng.toFixed(3)) {
         setPuchIn({
-          employee_name: user.name,
+          name: user.name,
           punchTime: currentTime,
           punchOut: outTime,
         });

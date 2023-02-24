@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import PresentEmployee from "./Components/EmployeeList/PresentEmployee";
+
 import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import Private from "./Components/Private/Private";
+import PresentEmployee from "./pages/EmployeeList/PresentEmployee";
 import Landing from "./pages/Landingpage/Landing";
 import Login from "./pages/Login/Login";
 import PunchIn from "./pages/PunchIn/PunchIn";
