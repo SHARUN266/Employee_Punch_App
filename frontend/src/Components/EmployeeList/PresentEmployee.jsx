@@ -18,7 +18,7 @@ function PresentEmployee() {
               <th>Designation</th>
               <th>In Time</th>
               <th>Out Time</th>
-              <th>Contact No.</th>
+              <th>Date</th>
             </thead>
             
             <tbody  >
@@ -31,7 +31,7 @@ function PresentEmployee() {
                 <td>Banquet</td>
                 <td>3:00 AM</td>
                 <td>12:00</td>
-                <td>8279934295</td>
+                <td>24/FEB/2023</td>
               </tr>
                 ))
               }

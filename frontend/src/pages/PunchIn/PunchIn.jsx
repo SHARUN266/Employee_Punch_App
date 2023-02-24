@@ -7,8 +7,9 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import osm from "../../Utils/osm-providers";
 import "leaflet/dist/leaflet.css";
-
+import { useDispatch } from "react-redux";
 import useGeolocation from "../../Utils/useGeolocation";
+import { Punch_In_User } from "../../Redux/Reducer/action";
 const markerIcon = new L.Icon({
   iconUrl: "https://img.icons8.com/color/1x/map-pin.png",
   iconSize: [35, 45],
@@ -18,9 +19,10 @@ const markerIcon = new L.Icon({
 function PunchIn() {
   const currentTime = GetTime(new Date(), 0);
   const outTime = GetTime(new Date(), 8);
+  const dispatch = useDispatch();
   const location = useGeolocation();
   const [punchIn, setPuchIn] = useState({});
-  const {user}=JSON.parse(localStorage.getItem("user"))
+  const { user } = JSON.parse(localStorage.getItem("user"));
   const [center, setCenter] = useState({ lat: 27.713, lng: 78.99 });
   const ZOOM_LEVEL = 15;
   const mapRef = useRef();
@@ -30,18 +32,25 @@ function PunchIn() {
       mapRef.current.leafletElement.flyTo([lat, lng], ZOOM_LEVEL, {
         animate: true,
       });
-
-      if (27.142 == lat.toFixed(3) || 78.045 == lng.toFixed(3)) {
+      console.log(lat, lng);
+      if (28.642 == lat.toFixed(3) || 77.953 == lng.toFixed(3)) {
         setPuchIn({
           employee_name: user.name,
           punchTime: currentTime,
           punchOut: outTime,
         });
+        dispatch(
+          Punch_In_User({
+            name: user.name,
+            punchIn: currentTime,
+            punchOut: outTime,
+          })
+        );
       } else {
         alert("You are not correct location");
       }
     } else {
-      alert(location.error.message);
+      alert(location);
     }
   }
 

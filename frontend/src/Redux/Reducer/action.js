@@ -2,6 +2,9 @@ import {
   LOGIN_ERROR,
   LOGIN_LOADING,
   LOGIN_SUCCESS,
+  PUNCH_ERROR,
+  PUNCH_LOADING,
+  PUNCH_SUCCESS,
   SIGNUP_ERROR,
   SIGNUP_LOADING,
   SIGNUP_SUCCESS,
@@ -38,5 +41,15 @@ export const Login_User = (user, nav) => async (dispatch) => {
     }
   } catch (e) {
     dispatch({ type: LOGIN_ERROR, payload: e.message });
+  }
+};
+
+export const Punch_In_User = (punchIn) => async (dispatch) => {
+  dispatch({ type: PUNCH_LOADING, payload: "Loading..." });
+  try {
+    let { data } = await axios.post(`${BASE_URL}/punch/`, punchIn);
+    dispatch({ type: PUNCH_SUCCESS, payload: data });
+  } catch(e) {
+    dispatch({ type: PUNCH_ERROR, payload: e.message });
   }
 };

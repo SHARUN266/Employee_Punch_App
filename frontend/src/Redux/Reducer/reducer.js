@@ -7,7 +7,7 @@ const initState = {
   loadingMsg: "",
   errorMsg: "",
   successMsg: "",
-  auth:false
+  auth: false,
 };
 
 export const reducer = (state = initState, { type, payload }) => {
@@ -20,7 +20,6 @@ export const reducer = (state = initState, { type, payload }) => {
         loadingMsg: "",
         error: false,
         errorMsg: "",
-       
       };
     }
     case actionTypes.SIGNUP_ERROR: {
@@ -35,7 +34,6 @@ export const reducer = (state = initState, { type, payload }) => {
         ...state,
         loading: true,
         loadingMsg: payload,
-
       };
     }
     case actionTypes.LOGIN_LOADING: {
@@ -52,17 +50,40 @@ export const reducer = (state = initState, { type, payload }) => {
         loadingMsg: "",
         error: false,
         errorMsg: "",
-        data:payload,
-        auth:true
+        data: payload,
+        auth: true,
       };
     }
-    case actionTypes.LOGIN_ERROR:{
+    case actionTypes.LOGIN_ERROR: {
       return {
         ...state,
         error: true,
         errorMsg: payload,
-
-      }
+      };
+    }
+    case actionTypes.PUNCH_LOADING: {
+      return {
+        ...state,
+        loading: true,
+        loadingMsg: payload,
+      };
+    }
+    case actionTypes.PUNCH_SUCCESS: {
+      return {
+        ...state,
+        data: payload,
+        loading: false,
+        loadingMsg: "",
+        error: false,
+        errorMsg: "",
+      };
+    }
+    case actionTypes.PUNCH_ERROR: {
+      return {
+        ...state,
+        error: true,
+        errorMsg: payload,
+      };
     }
     default:
       return state;
